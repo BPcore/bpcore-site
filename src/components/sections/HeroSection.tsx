@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/ui/glass-card";
-import { ArrowRight, Cpu, Activity, CheckCircle } from "lucide-react";
+import { ArrowRight, Cpu, Activity, CheckCircle, Zap, Shield, Grid, Flag } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function HeroSection() {
     return (
@@ -26,13 +27,16 @@ export function HeroSection() {
                             </span>
                             Production Ready: 100 MHz Validated
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-                            Scalable AI. <br />
-                            <span className="text-zinc-500">Zero Royalty.</span>
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+                            NeuraEdge™ NPU <br />
+                            <span className="text-zinc-500">by BPcore Silicon</span>
                         </h1>
-                        <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
-                            Production-ready RISC-V NPU IP. One-time acquisition, full source
-                            access, and deterministic performance.
+                        <h2 className="text-xl md:text-2xl font-semibold text-zinc-200 mb-4">
+                            Production-Ready AI Acceleration IP. <br className="hidden md:block" />
+                            Royalty-Free. Full Source. Made in India.
+                        </h2>
+                        <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
+                            BPcore Silicon delivers <strong>NeuraEdge™</strong>, a production-validated neural processing unit IP engineered for rapid integration, power efficiency, and complete technical independence.
                         </p>
                     </motion.div>
 
@@ -40,46 +44,52 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="flex flex-wrap gap-4"
+                        className="space-y-4"
                     >
-                        <Button
-                            size="lg"
-                            className="bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium"
-                        >
-                            Get Evaluation
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white rounded-full px-8 h-12 text-base font-medium"
-                        >
-                            View Specs
-                        </Button>
+                        <ul className="space-y-2">
+                            {[
+                                "100 MHz signoff achieved on Sky130 (TT: 137 MHz, FF: 178 MHz)",
+                                "Full RTL source with deterministic validation suites",
+                                "One-time acquisition, zero royalties, no per-unit fees",
+                                "Mesh-scalable architecture (2×2 → N×N) with sparsity-aware execution",
+                                "Made in India 🇮🇳 — Strengthening semiconductor sovereignty"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-start gap-3 text-zinc-300">
+                                    <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
                     </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8"
+                        className="flex flex-wrap gap-4 pt-4"
                     >
-                        {[
-                            { label: "Process", value: "Sky130" },
-                            { label: "Frequency", value: "137 MHz TT" },
-                            { label: "Architecture", value: "3-Stage" },
-                        ].map((stat, i) => (
-                            <div key={i} className="flex flex-col">
-                                <span className="text-zinc-500 text-sm">{stat.label}</span>
-                                <span className="text-zinc-200 font-mono font-medium text-lg">
-                                    {stat.value}
-                                </span>
-                            </div>
-                        ))}
+                        <Link href="/contact">
+                            <Button
+                                size="lg"
+                                className="bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium"
+                            >
+                                Get Evaluation
+                            </Button>
+                        </Link>
+                        <Link href="/technology">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white rounded-full px-8 h-12 text-base font-medium"
+                            >
+                                View Specs
+                            </Button>
+                        </Link>
                     </motion.div>
                 </div>
 
                 {/* Right Column: Visual Widgets */}
-                <div className="lg:col-span-5 flex flex-col gap-6">
+                <div className="lg:col-span-5 flex flex-col gap-6 justify-center">
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
