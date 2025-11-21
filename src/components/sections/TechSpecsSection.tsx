@@ -322,6 +322,10 @@ export function TechSpecsSection() {
                 } else {
                     blocks.push({ type: "table", lines: [line] });
                 }
+            } else if (line.trim().startsWith("## ")) {
+                blocks.push({ type: "h2", content: line.replace("## ", "").trim() });
+            } else if (line.trim().startsWith("### ")) {
+                blocks.push({ type: "h3", content: line.replace("### ", "").trim() });
             } else {
                 blocks.push({ type: "text", content: line });
             }
@@ -352,6 +356,22 @@ export function TechSpecsSection() {
                             </tbody>
                         </table>
                     </div>
+                );
+            }
+
+            if (block.type === "h2") {
+                return (
+                    <h2 key={index} className="text-xl font-bold text-white mt-8 mb-4 border-b border-zinc-800 pb-2">
+                        {renderText(block.content)}
+                    </h2>
+                );
+            }
+
+            if (block.type === "h3") {
+                return (
+                    <h3 key={index} className="text-lg font-semibold text-emerald-400 mt-6 mb-3">
+                        {renderText(block.content)}
+                    </h3>
                 );
             }
 
