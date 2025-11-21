@@ -30,11 +30,11 @@ export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
-                <Link href="/" className="px-4 py-2 flex items-center gap-2">
-                    <div className="relative w-8 h-8">
+        <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-6 md:px-12 pointer-events-none">
+            {/* Logo - Top Left (Always Visible) */}
+            <div className="pointer-events-auto">
+                <Link href="/" className="flex items-center gap-3">
+                    <div className="relative w-8 h-8 md:w-10 md:h-10">
                         <Image
                             src="/bpcore-logo.png"
                             alt="BPcore Silicon Logo"
@@ -42,11 +42,13 @@ export function Navbar() {
                             className="object-contain invert"
                         />
                     </div>
-                    <span className="font-bold text-white">BPcore Silicon</span>
+                    <span className="font-bold text-white text-lg md:text-xl tracking-tight">BPcore Silicon</span>
                 </Link>
-                <div className="w-px h-6 bg-zinc-800 mx-2" />
+            </div>
+
+            {/* Desktop Navigation - Centered Pill */}
+            <nav className="hidden md:flex pointer-events-auto absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
                 {navItems.map((item) => {
-                    if (item.path === "/") return null; // Skip Home in list as it's the logo
                     const isActive = pathname === item.path;
                     return (
                         <Link
@@ -70,23 +72,12 @@ export function Navbar() {
                 })}
             </nav>
 
-            {/* Mobile Navigation */}
-            <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg rounded-full px-4 py-2">
-                <Link href="/" className="flex items-center gap-2 px-2">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/bpcore-logo.png"
-                            alt="BPcore Silicon Logo"
-                            fill
-                            className="object-contain invert"
-                        />
-                    </div>
-                    <span className="text-white font-bold text-lg">BPcore</span>
-                </Link>
+            {/* Mobile Navigation - Hamburger Right */}
+            <div className="md:hidden pointer-events-auto">
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
-                        <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white">
-                            <Menu className="w-6 h-6" />
+                        <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-full w-10 h-10">
+                            <Menu className="w-5 h-5" />
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="right" className="w-[300px] bg-zinc-950 border-zinc-800 p-6">
