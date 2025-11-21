@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BPcore Silicon | NeuraEdge™ NPU",
   description: "Production-ready RISC-V NPU IP. 100 MHz Validated. Royalty Free.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
