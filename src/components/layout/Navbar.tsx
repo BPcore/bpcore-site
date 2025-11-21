@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -32,7 +33,20 @@ export function Navbar() {
         <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
+                <Link href="/" className="px-4 py-2 flex items-center gap-2">
+                    <div className="relative w-8 h-8">
+                        <Image
+                            src="/bpcore-logo.png"
+                            alt="BPcore Silicon Logo"
+                            fill
+                            className="object-contain invert"
+                        />
+                    </div>
+                    <span className="font-bold text-white">BPcore Silicon</span>
+                </Link>
+                <div className="w-px h-6 bg-zinc-800 mx-2" />
                 {navItems.map((item) => {
+                    if (item.path === "/") return null; // Skip Home in list as it's the logo
                     const isActive = pathname === item.path;
                     return (
                         <Link
@@ -58,8 +72,16 @@ export function Navbar() {
 
             {/* Mobile Navigation */}
             <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg rounded-full px-4 py-2">
-                <Link href="/" className="text-white font-bold text-lg px-2">
-                    BPcore
+                <Link href="/" className="flex items-center gap-2 px-2">
+                    <div className="relative w-8 h-8">
+                        <Image
+                            src="/bpcore-logo.png"
+                            alt="BPcore Silicon Logo"
+                            fill
+                            className="object-contain invert"
+                        />
+                    </div>
+                    <span className="text-white font-bold text-lg">BPcore</span>
                 </Link>
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
