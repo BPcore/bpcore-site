@@ -27,50 +27,50 @@ export function MilestoneSection() {
                                 Timing Signoff (Sky130)
                             </h3>
                         </div>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto border border-zinc-800 rounded-lg">
                             <table className="w-full text-sm text-left">
                                 <thead className="text-xs text-zinc-500 uppercase bg-zinc-800/50">
                                     <tr>
-                                        <th className="px-4 py-3 rounded-l-lg">Corner</th>
-                                        <th className="px-4 py-3">Frequency</th>
-                                        <th className="px-4 py-3">WNS</th>
-                                        <th className="px-4 py-3">Margin</th>
-                                        <th className="px-4 py-3">Pipeline</th>
-                                        <th className="px-4 py-3 rounded-r-lg">Status</th>
+                                        <th className="px-6 py-4">Corner</th>
+                                        <th className="px-6 py-4">Frequency</th>
+                                        <th className="px-6 py-4">WNS</th>
+                                        <th className="px-6 py-4">Margin</th>
+                                        <th className="px-6 py-4">Pipeline</th>
+                                        <th className="px-6 py-4">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-zinc-800">
                                     <tr className="bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors">
-                                        <td className="px-4 py-4 font-medium text-white">
+                                        <td className="px-6 py-4 font-medium text-white">
                                             TT (25°C, 1.80V)
                                         </td>
-                                        <td className="px-4 py-4 font-mono text-emerald-400">
+                                        <td className="px-6 py-4 font-mono text-emerald-400">
                                             137 MHz
                                         </td>
-                                        <td className="px-4 py-4 font-mono text-emerald-400">
+                                        <td className="px-6 py-4 font-mono text-emerald-400">
                                             +2.71ns
                                         </td>
-                                        <td className="px-4 py-4 text-zinc-300">+37%</td>
-                                        <td className="px-4 py-4 text-zinc-400">3-stage</td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-6 py-4 text-zinc-300">+37%</td>
+                                        <td className="px-6 py-4 text-zinc-400">3-stage</td>
+                                        <td className="px-6 py-4">
                                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
                                                 Signoff-Ready
                                             </span>
                                         </td>
                                     </tr>
                                     <tr className="bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors">
-                                        <td className="px-4 py-4 font-medium text-white">
+                                        <td className="px-6 py-4 font-medium text-white">
                                             FF (-40°C, 1.95V)
                                         </td>
-                                        <td className="px-4 py-4 font-mono text-emerald-400">
+                                        <td className="px-6 py-4 font-mono text-emerald-400">
                                             178 MHz
                                         </td>
-                                        <td className="px-4 py-4 font-mono text-emerald-400">
+                                        <td className="px-6 py-4 font-mono text-emerald-400">
                                             +4.37ns
                                         </td>
-                                        <td className="px-4 py-4 text-zinc-300">+78%</td>
-                                        <td className="px-4 py-4 text-zinc-400">3-stage</td>
-                                        <td className="px-4 py-4">
+                                        <td className="px-6 py-4 text-zinc-300">+78%</td>
+                                        <td className="px-6 py-4 text-zinc-400">3-stage</td>
+                                        <td className="px-6 py-4">
                                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
                                                 Signoff-Ready
                                             </span>

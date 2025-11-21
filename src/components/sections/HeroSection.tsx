@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export function HeroSection() {
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 pt-24 pb-12 overflow-hidden">
+        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 pt-32 pb-12 overflow-hidden">
             {/* Background Grid Effect */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
@@ -20,7 +20,7 @@ export function HeroSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6 backdrop-blur-sm">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -95,7 +95,7 @@ export function HeroSection() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
-                        <GlassCard className="relative overflow-hidden">
+                        <GlassCard className="relative overflow-hidden border-emerald-500/20 shadow-[0_0_40px_-10px_rgba(16,185,129,0.1)]">
                             <div className="absolute top-0 right-0 p-4 opacity-20">
                                 <Cpu className="w-24 h-24 text-white" />
                             </div>
