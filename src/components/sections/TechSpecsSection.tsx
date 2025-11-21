@@ -141,8 +141,6 @@ NeauraEdge is a **tile-based neural processing fabric** with a parameterized 2D 
    ↓ Emit verification signature
 \`\`\`
 
-## Sparsity Path
-
 ### Sparsity Execution Stages
 
 | Stage | Module | Purpose |
