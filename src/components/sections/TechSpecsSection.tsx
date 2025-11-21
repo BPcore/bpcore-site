@@ -20,7 +20,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const specs = {
     milestone: {
         title: "100_mhz_milestone.md",
-        content: `## 🎯 100 MHz Milestone Achieved (November 2025)
+        content: `## 100 MHz Milestone Achieved (November 2025)
 
 **Production-validated timing on Sky130 technology** with 3-stage pipeline architecture:
 
@@ -368,8 +368,17 @@ export function TechSpecsSection() {
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <pre className="text-zinc-300 whitespace-pre-wrap">
-                                        <code>{specs[activeTab].content}</code>
+                                    <pre className="text-zinc-300 whitespace-pre-wrap font-mono">
+                                        {specs[activeTab].content.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+                                            if (part.startsWith("**") && part.endsWith("**")) {
+                                                return (
+                                                    <span key={i} className="font-bold text-zinc-100">
+                                                        {part.slice(2, -2)}
+                                                    </span>
+                                                );
+                                            }
+                                            return <span key={i}>{part}</span>;
+                                        })}
                                     </pre>
                                 </motion.div>
                             </AnimatePresence>
