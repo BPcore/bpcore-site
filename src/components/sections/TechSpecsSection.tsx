@@ -299,8 +299,71 @@ const tabs = [
 ] as const;
 
 export function TechSpecsSection() {
-    const [activeTab, setActiveTab] =
-        useState<keyof typeof specs>("milestone");
+    const [activeTab, setActiveTab] = useState<keyof typeof specs>("milestone");
+
+    const renderText = (text: string) => {
+        return text.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+            if (part.startsWith("**") && part.endsWith("**")) {
+                return <span key={i} className="font-bold text-zinc-100">{part.slice(2, -2)}</span>;
+            }
+            return <span key={i}>{part}</span>;
+        });
+    };
+
+    const renderContent = (content: string) => {
+        const lines = content.split("\n");
+        const blocks: any[] = [];
+
+        lines.forEach((line) => {
+            if (line.trim().startsWith("|")) {
+                const lastBlock = blocks[blocks.length - 1];
+                if (lastBlock && lastBlock.type === "table") {
+                    lastBlock.lines.push(line);
+                } else {
+                    blocks.push({ type: "table", lines: [line] });
+                }
+            } else {
+                blocks.push({ type: "text", content: line });
+            }
+        });
+
+        return blocks.map((block, index) => {
+            if (block.type === "table") {
+                return (
+                    <div key={index} className="overflow-x-auto my-4 border border-zinc-800 rounded-lg">
+                        <table className="w-full text-left border-collapse text-sm">
+                            <tbody>
+                                {block.lines.map((row: string, rowIndex: number) => {
+                                    if (row.includes("---")) return null;
+                                    const cells = row.split("|").filter((cell: string) => cell.trim() !== "");
+                                    return (
+                                        <tr key={rowIndex} className={cn(
+                                            "border-b border-zinc-800 last:border-0",
+                                            rowIndex === 0 ? "bg-zinc-900/80 font-bold text-zinc-100" : "hover:bg-zinc-900/30 text-zinc-300"
+                                        )}>
+                                            {cells.map((cell: string, cellIndex: number) => (
+                                                <td key={cellIndex} className="p-3 border-r border-zinc-800 last:border-0 whitespace-nowrap">
+                                                    {renderText(cell.trim())}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            }
+
+            if (block.content.trim() === "") return <br key={index} />;
+
+            return (
+                <div key={index} className="whitespace-pre-wrap text-zinc-300 font-mono">
+                    {renderText(block.content)}
+                </div>
+            );
+        });
+    };
 
     return (
         <section className="py-24 px-6 md:px-12 relative z-10">
@@ -368,18 +431,9 @@ export function TechSpecsSection() {
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <pre className="text-zinc-300 whitespace-pre-wrap font-mono">
-                                        {specs[activeTab].content.split(/(\*\*.*?\*\*)/g).map((part, i) => {
-                                            if (part.startsWith("**") && part.endsWith("**")) {
-                                                return (
-                                                    <span key={i} className="font-bold text-zinc-100">
-                                                        {part.slice(2, -2)}
-                                                    </span>
-                                                );
-                                            }
-                                            return <span key={i}>{part}</span>;
-                                        })}
-                                    </pre>
+                                    <div className="space-y-1">
+                                        {renderContent(specs[activeTab].content)}
+                                    </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
