@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 
 const navItems = [
     { name: "Home", path: "/" },
-    { name: "Milestones", path: "/milestones" },
-    { name: "Features", path: "/features" },
-    { name: "Specs", path: "/specs" },
+    { name: "Technology", path: "/technology" },
     { name: "Licensing", path: "/licensing" },
+    { name: "What Buyers Get", path: "/buyers" },
+    { name: "Performance", path: "/performance" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
 ];
 
 export function Navbar() {
