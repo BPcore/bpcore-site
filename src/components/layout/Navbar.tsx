@@ -4,6 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+    SheetTitle,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
     { name: "Home", path: "/" },
@@ -17,10 +26,12 @@ const navItems = [
 
 export function Navbar() {
     const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
-            <nav className="flex items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
                 {navItems.map((item) => {
                     const isActive = pathname === item.path;
                     return (
@@ -44,6 +55,43 @@ export function Navbar() {
                     );
                 })}
             </nav>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg rounded-full px-4 py-2">
+                <Link href="/" className="text-white font-bold text-lg px-2">
+                    BPcore
+                </Link>
+                <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white">
+                            <Menu className="w-6 h-6" />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="w-[300px] bg-zinc-950 border-zinc-800 p-6">
+                        <SheetTitle className="text-zinc-100 mb-6">Navigation</SheetTitle>
+                        <div className="flex flex-col gap-4">
+                            {navItems.map((item) => {
+                                const isActive = pathname === item.path;
+                                return (
+                                    <Link
+                                        key={item.path}
+                                        href={item.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={cn(
+                                            "px-4 py-3 text-lg font-medium rounded-lg transition-colors",
+                                            isActive
+                                                ? "bg-zinc-800 text-white"
+                                                : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
         </header>
     );
 }
