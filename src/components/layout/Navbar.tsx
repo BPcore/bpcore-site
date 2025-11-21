@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import logoImg from "@/assets/bpcore-logo.webp";
 import {
     Sheet,
     SheetContent,
@@ -36,10 +37,11 @@ export function Navbar() {
                 <Link href="/" className="flex items-center gap-3">
                     <div className="relative w-8 h-8 md:w-10 md:h-10">
                         <Image
-                            src="/bpcore-logo.webp"
+                            src={logoImg}
                             alt="BPcore Silicon Logo"
                             fill
                             className="object-contain invert"
+                            placeholder="blur"
                         />
                     </div>
                     <span className="font-bold text-white text-lg md:text-xl tracking-tight">BPcore Silicon</span>
