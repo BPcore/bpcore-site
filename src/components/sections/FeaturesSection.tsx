@@ -125,18 +125,20 @@ export function FeaturesSection() {
                         {inside.map((feature, index) => (
                             <GlassCard
                                 key={index}
-                                className="hover:bg-secondary/50 transition-colors flex gap-4"
+                                className="hover:bg-secondary/50 transition-colors"
                             >
-                                <div className="flex-shrink-0 p-2 bg-secondary rounded-lg h-fit border border-border">
-                                    {feature.icon}
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-foreground mb-2">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-muted-foreground text-sm leading-relaxed">
-                                        {feature.description}
-                                    </p>
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 p-2 bg-secondary rounded-lg h-fit border border-border">
+                                        {feature.icon}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-foreground mb-2">
+                                            {feature.title}
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm leading-relaxed">
+                                            {feature.description}
+                                        </p>
+                                    </div>
                                 </div>
                             </GlassCard>
                         ))}

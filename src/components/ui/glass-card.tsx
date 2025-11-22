@@ -16,7 +16,7 @@ export function GlassCard({
     return (
         <Card
             className={cn(
-                "bg-zinc-900/30 backdrop-blur-xl border-zinc-800 shadow-none transition-all duration-300 hover:border-zinc-700/50",
+                "bg-background/50 backdrop-blur-xl border-border shadow-sm transition-all duration-300 hover:border-ring/50",
                 className
             )}
             {...props}
