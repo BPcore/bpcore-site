@@ -15,6 +15,7 @@ import {
     SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const navItems = [
     { name: "Home", path: "/" },
@@ -40,16 +41,16 @@ export function Navbar() {
                             src={logoImg}
                             alt="BPcore Silicon Logo"
                             fill
-                            className="object-contain invert"
+                            className="object-contain dark:invert"
                             placeholder="blur"
                         />
                     </div>
-                    <span className="font-bold text-white text-lg md:text-xl tracking-tight">BPcore Silicon</span>
+                    <span className="font-bold text-foreground text-lg md:text-xl tracking-tight">BPcore Silicon</span>
                 </Link>
             </div>
 
             {/* Desktop Navigation - Centered Pill */}
-            <nav className="hidden md:flex pointer-events-auto absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-lg">
+            <nav className="hidden md:flex pointer-events-auto absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 rounded-full bg-background/50 backdrop-blur-xl border border-border shadow-lg">
                 {navItems.map((item) => {
                     const isActive = pathname === item.path;
                     return (
@@ -58,13 +59,13 @@ export function Navbar() {
                             href={item.path}
                             className={cn(
                                 "relative px-4 py-2 text-sm font-medium rounded-full transition-colors",
-                                isActive ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+                                isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                             )}
                         >
                             {isActive && (
                                 <motion.div
                                     layoutId="nav-pill"
-                                    className="absolute inset-0 bg-zinc-800 rounded-full -z-10"
+                                    className="absolute inset-0 bg-accent rounded-full -z-10"
                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 />
                             )}
@@ -75,15 +76,16 @@ export function Navbar() {
             </nav>
 
             {/* Mobile Navigation - Hamburger Right */}
-            <div className="md:hidden pointer-events-auto">
+            <div className="md:hidden pointer-events-auto flex items-center gap-2">
+                <ModeToggle />
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-full w-10 h-10">
                             <Menu className="w-5 h-5" />
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-[300px] bg-zinc-950 border-zinc-800 p-6">
-                        <SheetTitle className="text-zinc-100 mb-6">Navigation</SheetTitle>
+                    <SheetContent side="right" className="w-[300px] bg-background border-border p-6">
+                        <SheetTitle className="text-foreground mb-6">Navigation</SheetTitle>
                         <div className="flex flex-col gap-4">
                             {navItems.map((item) => {
                                 const isActive = pathname === item.path;
@@ -95,8 +97,8 @@ export function Navbar() {
                                         className={cn(
                                             "px-4 py-3 text-lg font-medium rounded-lg transition-colors",
                                             isActive
-                                                ? "bg-zinc-800 text-white"
-                                                : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
+                                                ? "bg-accent text-accent-foreground"
+                                                : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                                         )}
                                     >
                                         {item.name}
@@ -106,6 +108,11 @@ export function Navbar() {
                         </div>
                     </SheetContent>
                 </Sheet>
+            </div>
+
+            {/* Desktop Mode Toggle */}
+            <div className="hidden md:block pointer-events-auto absolute right-12">
+                <ModeToggle />
             </div>
         </header>
     );

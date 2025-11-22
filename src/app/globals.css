@@ -45,53 +45,83 @@
 
 :root {
   --radius: 0.625rem;
-  /* Force dark mode defaults even in root if we want, but let's stick to .dark for now and enforce it in layout */
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #18181b; /* zinc-900 */
-  --card-foreground: #fafafa;
-  --popover: #09090b;
-  --popover-foreground: #fafafa;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #27272a; /* zinc-800 */
-  --secondary-foreground: #fafafa;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa; /* zinc-400 */
-  --accent: #27272a;
-  --accent-foreground: #fafafa;
-  --destructive: #7f1d1d;
+
+  /* Light Mode - Engineering Light */
+  --background: #ffffff;
+  --foreground: #09090b;
+  /* zinc-950 */
+
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --primary: #09090b;
+  --primary-foreground: #fafafa;
+
+  --secondary: #f4f4f5;
+  /* zinc-100 */
+  --secondary-foreground: #18181b;
+
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  /* zinc-500 */
+
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+
+  --destructive: #ef4444;
   --destructive-foreground: #fafafa;
-  --border: #27272a; /* zinc-800 */
-  --input: #27272a;
-  --ring: #a1a1aa;
-  --chart-1: #ffffff;
-  --chart-2: #a1a1aa;
-  --chart-3: #52525b;
-  --chart-4: #27272a;
-  --chart-5: #18181b;
+
+  --border: #e4e4e7;
+  /* zinc-200 */
+  --input: #e4e4e7;
+  --ring: #18181b;
+
+  --chart-1: #e76e50;
+  --chart-2: #2a9d8f;
+  --chart-3: #264653;
+  --chart-4: #f4a261;
+  --chart-5: #e9c46a;
 }
 
 .dark {
+  /* Engineering Dark Mode (Preserved) */
   --background: #09090b;
+  /* zinc-950 */
   --foreground: #fafafa;
+  /* zinc-50 */
+
   --card: #18181b;
+  /* zinc-900 */
   --card-foreground: #fafafa;
+
   --popover: #09090b;
   --popover-foreground: #fafafa;
+
   --primary: #ffffff;
   --primary-foreground: #000000;
+
   --secondary: #27272a;
+  /* zinc-800 */
   --secondary-foreground: #fafafa;
+
   --muted: #27272a;
   --muted-foreground: #a1a1aa;
+  /* zinc-400 */
+
   --accent: #27272a;
   --accent-foreground: #fafafa;
+
   --destructive: #7f1d1d;
   --destructive-foreground: #fafafa;
+
   --border: #27272a;
+  /* zinc-800 */
   --input: #27272a;
   --ring: #a1a1aa;
+
   --chart-1: #ffffff;
   --chart-2: #a1a1aa;
   --chart-3: #52525b;
@@ -103,6 +133,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

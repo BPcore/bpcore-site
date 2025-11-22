@@ -20,22 +20,22 @@ export function HeroSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-sm font-medium mb-6 backdrop-blur-sm">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
                             Production Ready: 100 MHz Validated
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             NeuraEdge™ NPU <br />
-                            <span className="text-zinc-500">by BPcore Silicon</span>
+                            <span className="text-muted-foreground">by BPcore Silicon</span>
                         </h1>
-                        <h2 className="text-xl md:text-2xl font-semibold text-zinc-200 mb-4">
+                        <h2 className="text-xl md:text-2xl font-semibold text-zinc-700 dark:text-zinc-200 mb-4">
                             Production-Ready AI Acceleration IP. <br className="hidden md:block" />
                             Royalty-Free. Full Source. Made in India.
                         </h2>
-                        <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
+                        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
                             BPcore Silicon delivers <strong>NeuraEdge™</strong>, a production-validated neural processing unit IP engineered for rapid integration, power efficiency, and complete technical independence.
                         </p>
                     </motion.div>
@@ -54,7 +54,7 @@ export function HeroSection() {
                                 "Mesh-scalable architecture (2×2 → N×N) with sparsity-aware execution",
                                 "Made in India 🇮🇳 — Strengthening semiconductor sovereignty"
                             ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-zinc-300">
+                                <li key={i} className="flex items-start gap-3 text-zinc-600 dark:text-zinc-300">
                                     <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
                                     <span>{item}</span>
                                 </li>
@@ -71,7 +71,7 @@ export function HeroSection() {
                         <Link href="/contact">
                             <Button
                                 size="lg"
-                                className="bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium"
+                                className="bg-foreground text-background hover:bg-zinc-800 dark:hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium"
                             >
                                 Get Evaluation
                             </Button>
@@ -80,7 +80,7 @@ export function HeroSection() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white rounded-full px-8 h-12 text-base font-medium"
+                                className="border-border text-muted-foreground hover:bg-accent hover:text-foreground rounded-full px-8 h-12 text-base font-medium"
                             >
                                 View Specs
                             </Button>
@@ -97,25 +97,25 @@ export function HeroSection() {
                     >
                         <GlassCard className="relative overflow-hidden border-emerald-500/20 shadow-[0_0_40px_-10px_rgba(16,185,129,0.1)]">
                             <div className="absolute top-0 right-0 p-4 opacity-20">
-                                <Cpu className="w-24 h-24 text-white" />
+                                <Cpu className="w-24 h-24 text-foreground" />
                             </div>
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="text-zinc-100 font-medium">System Status</h3>
+                                    <h3 className="text-foreground font-medium">System Status</h3>
                                     <Activity className="w-4 h-4 text-emerald-500" />
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-zinc-500">Core Voltage</span>
-                                        <span className="text-emerald-400 font-mono">1.80V</span>
+                                        <span className="text-muted-foreground">Core Voltage</span>
+                                        <span className="text-emerald-500 font-mono">1.80V</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-zinc-500">Clock Jitter</span>
-                                        <span className="text-emerald-400 font-mono">
+                                        <span className="text-muted-foreground">Clock Jitter</span>
+                                        <span className="text-emerald-500 font-mono">
                                             &lt; 50ps
                                         </span>
                                     </div>
-                                    <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden mt-2">
+                                    <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden mt-2">
                                         <div className="h-full bg-emerald-500 w-[92%] rounded-full" />
                                     </div>
                                 </div>
@@ -130,21 +130,21 @@ export function HeroSection() {
                     >
                         <GlassCard>
                             <div className="flex items-start gap-4">
-                                <div className="p-2 bg-zinc-800/50 rounded-lg border border-zinc-700">
+                                <div className="p-2 bg-secondary rounded-lg border border-border">
                                     <CheckCircle className="w-5 h-5 text-emerald-500" />
                                 </div>
                                 <div>
-                                    <h4 className="text-zinc-100 font-medium">
+                                    <h4 className="text-foreground font-medium">
                                         Nightly Regression
                                     </h4>
-                                    <p className="text-zinc-500 text-sm mt-1">
+                                    <p className="text-muted-foreground text-sm mt-1">
                                         Latest run passed with +2.71ns margin on TT corner.
                                     </p>
                                     <div className="mt-3 flex gap-2">
-                                        <span className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded border border-zinc-700">
+                                        <span className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded border border-border">
                                             SHA: 7f3a9b
                                         </span>
-                                        <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/20">
+                                        <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded border border-emerald-500/20">
                                             PASS
                                         </span>
                                     </div>

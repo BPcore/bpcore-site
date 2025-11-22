@@ -77,15 +77,15 @@ const inside = [
 
 export function FeaturesSection() {
     return (
-        <section className="py-24 px-6 md:px-12 relative z-10 bg-zinc-950/50">
+        <section className="py-24 px-6 md:px-12 relative z-10 bg-secondary/30">
             <div className="max-w-7xl mx-auto space-y-24">
                 {/* Why NeuraEdge Wins */}
                 <div>
                     <div className="mb-12 text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                             Why NeuraEdge™ Wins
                         </h2>
-                        <p className="text-zinc-400 max-w-2xl">
+                        <p className="text-muted-foreground max-w-2xl">
                             Innovation without lock-in. A new standard for IP ownership.
                         </p>
                     </div>
@@ -94,15 +94,15 @@ export function FeaturesSection() {
                         {wins.map((feature, index) => (
                             <GlassCard
                                 key={index}
-                                className="hover:bg-zinc-800/40 transition-colors group"
+                                className="hover:bg-secondary/50 transition-colors group"
                             >
-                                <div className="mb-4 p-3 bg-zinc-900/50 rounded-lg w-fit border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+                                <div className="mb-4 p-3 bg-secondary rounded-lg w-fit border border-border group-hover:border-zinc-400 dark:group-hover:border-zinc-700 transition-colors">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
+                                <h3 className="text-xl font-bold text-foreground mb-2">
                                     {feature.title}
                                 </h3>
-                                <p className="text-zinc-400 leading-relaxed">
+                                <p className="text-muted-foreground leading-relaxed">
                                     {feature.description}
                                 </p>
                             </GlassCard>
@@ -113,10 +113,10 @@ export function FeaturesSection() {
                 {/* Inside NeuraEdge */}
                 <div>
                     <div className="mb-12 text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                             Inside NeuraEdge™
                         </h2>
-                        <p className="text-zinc-400 max-w-2xl">
+                        <p className="text-muted-foreground max-w-2xl">
                             Architected for performance, scalability, and ease of integration.
                         </p>
                     </div>
@@ -125,16 +125,16 @@ export function FeaturesSection() {
                         {inside.map((feature, index) => (
                             <GlassCard
                                 key={index}
-                                className="hover:bg-zinc-800/40 transition-colors flex gap-4"
+                                className="hover:bg-secondary/50 transition-colors flex gap-4"
                             >
-                                <div className="flex-shrink-0 p-2 bg-zinc-900/50 rounded-lg h-fit border border-zinc-800">
+                                <div className="flex-shrink-0 p-2 bg-secondary rounded-lg h-fit border border-border">
                                     {feature.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-white mb-2">
+                                    <h3 className="text-lg font-bold text-foreground mb-2">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-zinc-400 text-sm leading-relaxed">
+                                    <p className="text-muted-foreground text-sm leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
