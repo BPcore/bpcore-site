@@ -15,7 +15,6 @@ import {
     SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/mode-toggle";
 
 const navItems = [
     { name: "Home", path: "/" },
@@ -77,7 +76,6 @@ export function Navbar() {
 
             {/* Mobile Navigation - Hamburger Right */}
             <div className="md:hidden pointer-events-auto flex items-center gap-2">
-                <ModeToggle />
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-full w-10 h-10">
@@ -108,11 +106,6 @@ export function Navbar() {
                         </div>
                     </SheetContent>
                 </Sheet>
-            </div>
-
-            {/* Desktop Mode Toggle */}
-            <div className="hidden md:block pointer-events-auto absolute right-12">
-                <ModeToggle />
             </div>
         </header>
     );
