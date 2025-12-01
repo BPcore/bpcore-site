@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   description: "Production-ready RISC-V NPU IP. 100 MHz Validated. Royalty Free.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/bpcore-logo.png", sizes: "1024x576", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
     ],
-    apple: { url: "/bpcore-logo.png", sizes: "1024x576", type: "image/png" },
+    apple: { url: "/apple-icon.png", type: "image/png" },
   },
 };
 
